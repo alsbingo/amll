@@ -1,3 +1,8 @@
+:root{
+  --color-text:#fff;
+  --color-title:rgb(243, 107, 114);
+}
+
 html,body{
   margin: 0px;
   padding: 0px;
@@ -9,3 +14,11 @@ html,body{
   height: 100%;
   width: 100%;
 }
+
+.message{
+  min-width: 200px;
+}
+
+/* .el-message{
+  min-width: 200px;
+} */

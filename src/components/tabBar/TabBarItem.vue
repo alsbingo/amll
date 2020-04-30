@@ -16,7 +16,7 @@ export default {
     },
     activeColor: {
       type: String,
-      default: "#1296db"
+      default: "#F36B72"
     }
   },
   computed: {

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-     <!-- <router-view name="top" /> -->
+    <!-- <router-view name="top" /> -->
     <transition name="slide-right">
       <router-view />
     </transition>
@@ -14,9 +14,14 @@ export default {
   name: "App",
   components: {
     MainTabBar
+  },
+  created() {
+    if (localStorage.getItem("user")) {
+      this.$store.commit("login", JSON.parse(localStorage.getItem("user")));
+    }
   }
 };
 </script>
 <style>
-@import url('./assets/css/base.css');
+@import url("./assets/css/base.css");
 </style>

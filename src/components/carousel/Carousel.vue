@@ -173,7 +173,7 @@ export default {
 .dotList {
   display: flex;
   position: absolute;
-  z-index: 1000;
+  z-index: 9;
   right: 20px;
   bottom: 40px;
 }

@@ -1,9 +1,13 @@
 <template>
-  <div>我的</div>
+  <login/>
 </template>
 <script>
+import Login from '@/components/login/Login'
 export default {
-  name:"Profile"
+  name:"Profile",
+  components:{
+    Login
+  }
 }
 </script>
 <style scoped>
