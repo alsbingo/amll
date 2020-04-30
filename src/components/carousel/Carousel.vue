@@ -1,5 +1,5 @@
 <template>
-  <div ref="baseEl" class="swiper">
+  <div ref="baseEl" class="carousel">
     <div :style="scrollStyle" v-for="(item,index) in list" :key="item.title">
       <a :href="item.url">
         <img
@@ -11,7 +11,7 @@
       </a>
       <span v-if="showTitle" class="title">{{item.title}}</span>
     </div>
-
+<!-- 过渡图片 -->
     <div :style="scrollStyle">
       <a :href="firstItem.url">
         <img
@@ -35,13 +35,13 @@
 let timer;
 let transtionTimer;
 export default {
-  name: "Swiper",
+  name: "Carousel",
   props: {
     list: {
       type: Array,
       required: true,
       default() {
-        return {};
+        return [];
       }
     },
     showTitle: {
@@ -69,11 +69,12 @@ export default {
       com.width = baseEl.offsetWidth;
       com.height = baseEl.offsetHeight;
     };
+    this.currentIndex = 1;
+    this.begin();
   },
-  beforeUpdate() {},
   computed: {
     sizeStyle() {
-       return { width: this.width + "px", height: this.height + "px" };
+      return { width: this.width + "px", height: this.height + "px" };
     },
     number() {
       return this.list.length + 1;
@@ -82,10 +83,7 @@ export default {
       return this.list[0];
     }
   },
-  created() {
-    this.currentIndex = 1;
-    this.begin();
-  },
+  created() {},
   destroyed() {
     clearInterval(timer);
     timer = null;
@@ -108,9 +106,9 @@ export default {
         start = 0;
         end = -this.width;
       }
-      this.moveTranstion(start, end);
+      this.move(start, end);
     },
-    moveTranstion(start, end) {
+    move(start, end) {
       let offset = this.width / 20;
       transtionTimer = setInterval(() => {
         start = start - offset;
@@ -151,7 +149,7 @@ export default {
 </script>
 
 <style scoped>
-.swiper {
+.carousel {
   display: flex;
   overflow: hidden;
   position: relative;
