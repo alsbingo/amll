@@ -1,15 +1,8 @@
 version: 2.1
-
-jobs:
-  test:
-    docker:
-      - image: cimg/node:8.11.2
-    steps:
-      - run:
-          name: Run Tests
-          command: npm run build
-
+orbs:
+  node: circleci/node@4.7.0
 workflows:
-  test_my_app:
-    jobs:
-      - test
+    example-workflow:
+      jobs:
+        - node/test:
+            run-command: npm run build 
