@@ -5,4 +5,4 @@ workflows:
     example-workflow:
       jobs:
         - node/test:
-            run-command: npm run build 
+            run-command:  build 
